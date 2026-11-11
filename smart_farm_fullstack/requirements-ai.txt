@@ -1,0 +1,5 @@
+# Install after requirements.txt. PyTorch is a large dependency; CPU inference is supported.
+Pillow>=10.0
+transformers>=4.45
+torch>=2.4
+safetensors>=0.4

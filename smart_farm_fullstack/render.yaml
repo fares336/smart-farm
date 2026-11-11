@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: smart-farm-dashboard
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: FLASK_SECRET
+        generateValue: true
+      - key: ROBOT_API_KEY
+        generateValue: true
+      - key: PLANT_MODEL_ID
+        value: rodynaemad/plant-disease-dinov2-small
+      - key: PLANT_AI_CONFIDENCE_THRESHOLD
+        value: "0.65"
